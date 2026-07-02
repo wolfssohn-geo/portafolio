@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body class="bg-[#0b0a0d] text-[#b3bbc7] font-['Space_Mono'] h-screen w-full overflow-hidden m-0">
+<body class="bg-[#0b0a0d] text-[#b3bbc7] font-['Space_Mono'] h-screen w-full m-0 overflow-x-hidden">
 
   <!-- Topo pattern background -->
   <canvas id="topo-canvas" class="fixed inset-0 w-full h-full opacity-[0.35] pointer-events-none z-0"></canvas>
 
   <!-- ─── SIDEBAR ─── -->
   <aside
-    class="fixed top-0 left-0 z-40 h-screen w-64 backdrop-blur-xl bg-[#0b0a0d]/70 border-r border-slate-700/30 flex flex-col p-6">
+    class="fixed top-0 left-0 z-40 h-screen w-64 backdrop-blur-xl bg-[#0b0a0d]/95 border-r border-slate-700/30 flex flex-col p-6 transition-transform duration-300 -translate-x-full lg:translate-x-0">
     <div class="mb-8">
       <h2 class="font-['JetBrains_Mono'] text-[#8754FB] text-sm tracking-widest">PORTAFOLIO</h2>
       <div class="h-px bg-gradient-to-r from-purple-500/50 to-transparent mt-2"></div>
@@ -70,82 +70,82 @@
   </button>
 
   <!-- ─── MAIN CONTENT ─── -->
-  <main class="ml-64 h-screen overflow-y-auto scroll-smooth" id="main-content">
+  <main class="h-screen overflow-y-auto scroll-smooth lg:ml-64" id="main-content">
 
     <!-- ════════════════════════════════════════════ -->
     <!-- SECTION: HOME / HERO                           -->
     <!-- ════════════════════════════════════════════ -->
-    <section id="home" class="relative min-h-screen flex items-center overflow-hidden px-8 py-16">
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden px-4 py-20 sm:px-8 lg:px-8">
 
       <div class="relative z-10 max-w-5xl mx-auto w-full">
-        <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 mb-6">
-          <div class="w-1/5 min-w-[80px] flex-shrink-0">
+        <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-10 mb-6">
+          <div class="w-28 sm:w-24 md:w-1/5 flex-shrink-0">
             <img src="foto_perfil.jpeg" alt="Eduardo Carvajal Polanco" class="w-full rounded-2xl border border-purple-500/30 shadow-[0_0_15px_rgba(135,84,251,0.25)]" />
           </div>
-          <div class="flex-1">
-            <h1 class="font-['JetBrains_Mono'] text-2xl md:text-4xl lg:text-5xl font-bold text-[#b3bbc7] min-h-[1.2em]" id="hero-name">
+          <div class="flex-1 min-w-0">
+            <h1 class="font-['JetBrains_Mono'] text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[#b3bbc7] min-h-[1.2em]" id="hero-name">
             </h1>
-            <p class="font-['JetBrains_Mono'] text-sm md:text-base text-[#806AB7] mt-3 flex items-center gap-1">
+            <p class="font-['JetBrains_Mono'] text-xs sm:text-sm md:text-base text-[#806AB7] mt-3 flex items-center gap-1">
               <span class="text-[#8754FB]">></span>
-              <span id="hero-title"></span>
+              <span id="hero-title" class="truncate"></span>
               <span class="inline-block w-[2px] h-5 bg-[#8754FB] animate-pulse" id="hero-cursor"></span>
             </p>
-            <p class="text-[#806AB7] text-xs md:text-sm mt-6 max-w-2xl border-l-2 border-[rgba(93,37,133,0.3)] pl-4 italic">
+            <p class="text-[#806AB7] text-xs sm:text-sm mt-6 max-w-2xl border-l-2 border-[rgba(93,37,133,0.3)] pl-4 italic">
               "Análisis territorial para la toma de decisiones basada en evidencia"
             </p>
           </div>
         </div>
 
         <!-- KPI Tiles -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-10">
           <a href="#experiencia"
-            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 text-center hover:border-purple-500/40 transition-all duration-300">
+            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-5 text-center hover:border-purple-500/40 transition-all duration-300">
             <div
               class="absolute inset-0 rounded-xl bg-gradient-to-b from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             </div>
-            <i class="fas fa-calendar-alt text-[#8754FB] opacity-70 text-xl mb-2 relative"></i>
-            <p class="font-['JetBrains_Mono'] text-3xl font-bold text-[#8754FB] relative">8+</p>
-            <p class="text-[#8754FB] text-xs mt-1 relative tracking-wide">Años Experiencia</p>
+            <i class="fas fa-calendar-alt text-[#8754FB] opacity-70 text-lg sm:text-xl mb-2 relative"></i>
+            <p class="font-['JetBrains_Mono'] text-2xl sm:text-3xl font-bold text-[#8754FB] relative">8+</p>
+            <p class="text-[#8754FB] text-[10px] sm:text-xs mt-1 relative tracking-wide">Años Experiencia</p>
           </a>
           <a href="#proyectos"
-            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 text-center hover:border-emerald-500/40 transition-all duration-300">
+            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-5 text-center hover:border-emerald-500/40 transition-all duration-300">
             <div
               class="absolute inset-0 rounded-xl bg-gradient-to-b from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             </div>
-            <i class="fas fa-project-diagram text-emerald-400/70 text-xl mb-2 relative"></i>
-            <p class="font-['JetBrains_Mono'] text-3xl font-bold text-emerald-300 relative">20+</p>
-            <p class="text-emerald-300 text-xs mt-1 relative tracking-wide">Proyectos Implementados</p>
+            <i class="fas fa-project-diagram text-emerald-400/70 text-lg sm:text-xl mb-2 relative"></i>
+            <p class="font-['JetBrains_Mono'] text-2xl sm:text-3xl font-bold text-emerald-300 relative">20+</p>
+            <p class="text-emerald-300 text-[10px] sm:text-xs mt-1 relative tracking-wide">Proyectos</p>
           </a>
           <a href="#formacion"
-            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 text-center hover:border-purple-500/40 transition-all duration-300">
+            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-5 text-center hover:border-purple-500/40 transition-all duration-300">
             <div
               class="absolute inset-0 rounded-xl bg-gradient-to-b from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             </div>
-            <i class="fas fa-award text-[#823000]/70 text-xl mb-2 relative"></i>
-            <p class="font-['JetBrains_Mono'] text-3xl font-bold text-[#823000] relative">30+</p>
-            <p class="text-[#823000] text-xs mt-1 relative tracking-wide">Certificaciones y Capacitaciones</p>
+            <i class="fas fa-award text-[#823000]/70 text-lg sm:text-xl mb-2 relative"></i>
+            <p class="font-['JetBrains_Mono'] text-2xl sm:text-3xl font-bold text-[#823000] relative">30+</p>
+            <p class="text-[#823000] text-[10px] sm:text-xs mt-1 relative tracking-wide">Certificaciones</p>
           </a>
           <a href="#publicaciones"
-            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 text-center hover:border-fuchsia-500/40 transition-all duration-300">
+            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-5 text-center hover:border-fuchsia-500/40 transition-all duration-300">
             <div
               class="absolute inset-0 rounded-xl bg-gradient-to-b from-fuchsia-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             </div>
-            <i class="fas fa-scroll text-fuchsia-300/70 text-xl mb-2 relative"></i>
-            <p class="font-['JetBrains_Mono'] text-3xl font-bold text-fuchsia-300 relative">12+</p>
-            <p class="text-fuchsia-300 text-xs mt-1 relative tracking-wide">Publicaciones y Reconocimientos</p>
+            <i class="fas fa-scroll text-fuchsia-300/70 text-lg sm:text-xl mb-2 relative"></i>
+            <p class="font-['JetBrains_Mono'] text-2xl sm:text-3xl font-bold text-fuchsia-300 relative">12+</p>
+            <p class="text-fuchsia-300 text-[10px] sm:text-xs mt-1 relative tracking-wide">Publicaciones</p>
           </a>
         </div>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-wrap gap-4 mt-10">
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-10">
           <a href="#proyectos"
-            class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-purple-500/40 text-[#8754FB] font-['JetBrains_Mono'] text-sm tracking-wider overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(93,37,133,0.3)]">
+            class="group relative inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-purple-500/40 text-[#8754FB] font-['JetBrains_Mono'] text-sm tracking-wider overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(93,37,133,0.3)]">
             <span
               class="absolute inset-0 bg-purple-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
             <span class="relative"><i class="fas fa-chevron-circle-right"></i> Explorar Proyectos</span>
           </a>
           <a href="#contacto"
-            class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-fuchsia-500/40 text-fuchsia-300 font-['JetBrains_Mono'] text-sm tracking-wider overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(217,70,239,0.3)]">
+            class="group relative inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-fuchsia-500/40 text-fuchsia-300 font-['JetBrains_Mono'] text-sm tracking-wider overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(217,70,239,0.3)]">
             <span
               class="absolute inset-0 bg-fuchsia-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
             <span class="relative"><i class="fas fa-paper-plane"></i> Contactar</span>
@@ -157,7 +157,7 @@
     <!-- ════════════════════════════════════════════ -->
     <!-- SECTION: BIO                                  -->
     <!-- ════════════════════════════════════════════ -->
-    <section id="bio" class="px-8 py-16 border-t border-slate-800/50">
+    <section id="bio" class="px-4 py-12 sm:px-8 sm:py-16 border-t border-slate-800/50">
       <div class="max-w-5xl mx-auto">
         <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// bio.sh</p>
         <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-6">Home/Bio</h2>
@@ -321,26 +321,26 @@
     <!-- ════════════════════════════════════════════ -->
     <!-- SECTION: EXPERIENCIA LABORAL                  -->
     <!-- ════════════════════════════════════════════ -->
-    <section id="experiencia" class="px-8 py-16 border-t border-slate-800/50">
+    <section id="experiencia" class="px-4 py-12 sm:px-8 sm:py-16 border-t border-slate-800/50">
       <div class="max-w-5xl mx-auto">
         <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// experiencia.sh</p>
-        <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-8">Experiencia Laboral</h2>
+        <h2 class="font-['JetBrains_Mono'] text-xl sm:text-2xl font-bold text-[#8754FB] mb-6 sm:mb-8">Experiencia Laboral</h2>
 
         <div class="relative" id="experience-list">
           <div
-            class="absolute left-[116px] top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/30 via-slate-700/30 to-transparent"
+            class="absolute left-[88px] sm:left-[116px] top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/30 via-slate-700/30 to-transparent"
             id="data-stream-line"></div>
 
           <!-- Exp 1 -->
-          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
-            <div class="w-28 flex-shrink-0 pt-1">
-              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2025—Actualidad</p>
+          <div class="exp-item relative flex gap-3 sm:gap-6 mb-6 sm:mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-20 sm:w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-[10px] sm:text-xs text-[#823000]">2025—Actualidad</p>
             </div>
             <div
-              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-300">
-              <div class="flex items-start gap-3">
-                <span class="text-[#806AB7] font-semibold">Especialista en Gestión del Riesgo de Desastres y Ordenamiento Territorial</span>
-                <span class="ml-auto text-xs text-[#823000]">Celeo Redes</span>
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-4 hover:border-purple-500/30 transition-all duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                <span class="text-[#806AB7] font-semibold text-sm sm:text-base">Especialista en Gestión del Riesgo de Desastres y Ordenamiento Territorial</span>
+                <span class="sm:ml-auto text-[10px] sm:text-xs text-[#823000]">Celeo Redes</span>
               </div>
               <div class="flex gap-2 mt-2">
                 <span
@@ -355,21 +355,21 @@
           </div>
 
           <!-- Exp 2 -->
-          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
-            <div class="w-28 flex-shrink-0 pt-1">
-              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2024—Actualidad</p>
+          <div class="exp-item relative flex gap-3 sm:gap-6 mb-6 sm:mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-20 sm:w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-[10px] sm:text-xs text-[#823000]">2024—Actualidad</p>
             </div>
             <div
-              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-emerald-500/30 transition-all duration-300">
-              <div class="flex items-start gap-3">
-                <span class="text-[#806AB7] font-semibold">Especialista en Ordenamiento Territorial y Modelación Espacial</span>
-                <span class="ml-auto text-xs text-[#823000]">AChM - GORE RMS</span>
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-4 hover:border-emerald-500/30 transition-all duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                <span class="text-[#806AB7] font-semibold text-sm sm:text-base">Especialista en Ordenamiento Territorial y Modelación Espacial</span>
+                <span class="sm:ml-auto text-[10px] sm:text-xs text-[#823000]">AChM - GORE RMS</span>
               </div>
               <div class="flex gap-2 mt-2">
                 <span
                   class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-sky-900/40 text-sky-300 border border-sky-500/20">Público</span>
               </div>
-              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Desarrollo de plataformas
+              <p class="exp-desc text-[#806AB7] text-xs sm:text-sm mt-3 leading-relaxed hidden">Desarrollo de plataformas
                 territoriales integradas (SADE), modelos de escenarios de riesgo para 52 comunas, herramientas web de
                 visualización e interacción espacial, levantamiento de recursos y capacidades comunales.</p>
               <p class="text-[#8754FB] opacity-50 text-xs mt-2 font-['JetBrains_Mono'] exp-toggle"><i class="fas fa-chevron-down"></i> expandir
@@ -378,21 +378,21 @@
           </div>
 
           <!-- Exp 3 -->
-          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
-            <div class="w-28 flex-shrink-0 pt-1">
-              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2024—Actualidad</p>
+          <div class="exp-item relative flex gap-3 sm:gap-6 mb-6 sm:mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-20 sm:w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-[10px] sm:text-xs text-[#823000]">2024—Actualidad</p>
             </div>
             <div
-              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-300">
-              <div class="flex items-start gap-3">
-                <span class="text-[#806AB7] font-semibold">Docente Postgrado y Pregrado</span>
-                <span class="ml-auto text-xs text-[#823000]">Facultad Cs. Sociales, Geografía, UAH</span>
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-4 hover:border-purple-500/30 transition-all duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                <span class="text-[#806AB7] font-semibold text-sm sm:text-base">Docente Postgrado y Pregrado</span>
+                <span class="sm:ml-auto text-[10px] sm:text-xs text-[#823000]">Facultad Cs. Sociales, Geografía, UAH</span>
               </div>
               <div class="flex gap-2 mt-2">
                 <span
                   class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-amber-900/40 text-amber-300 border border-amber-500/20">Académico</span>
               </div>
-              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Profesor en Magíster
+              <p class="exp-desc text-[#806AB7] text-xs sm:text-sm mt-3 leading-relaxed hidden">Profesor en Magíster
                 Interdisciplinario en Intervención Social y Formación Complementaria de Geografía. Asignaturas:
                 Intervención Territorio II; Conmapas se habla: Geografía para los nuevos tiempos; Geotecnologías
                 aplicadas a GRD.</p>
@@ -402,21 +402,21 @@
           </div>
 
           <!-- Exp 4 -->
-          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
-            <div class="w-28 flex-shrink-0 pt-1">
-              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2020—Actualidad</p>
+          <div class="exp-item relative flex gap-3 sm:gap-6 mb-6 sm:mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-20 sm:w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-[10px] sm:text-xs text-[#823000]">2020—Actualidad</p>
             </div>
             <div
-              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-fuchsia-500/30 transition-all duration-300">
-              <div class="flex items-start gap-3">
-                <span class="text-[#806AB7] font-semibold">Cofundador</span>
-                <span class="ml-auto text-xs text-[#823000]">Laboratorio ConMapas</span>
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-4 hover:border-fuchsia-500/30 transition-all duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                <span class="text-[#806AB7] font-semibold text-sm sm:text-base">Cofundador</span>
+                <span class="sm:ml-auto text-[10px] sm:text-xs text-[#823000]">Laboratorio ConMapas</span>
               </div>
               <div class="flex gap-2 mt-2">
                 <span
                   class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-slate-800/80 text-[#806AB7] border border-slate-600/30">Independiente</span>
               </div>
-              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Proyecto de difusión de dinámicas
+              <p class="exp-desc text-[#806AB7] text-xs sm:text-sm mt-3 leading-relaxed hidden">Proyecto de difusión de dinámicas
                 socioterritoriales de contingencia a través de mapas en redes sociales. Análisis geoespacial avanzado y
                 herramientas de programación. Confección, diseño y composición de material cartográfico/visual.</p>
               <p class="text-[#8754FB] opacity-50 text-xs mt-2 font-['JetBrains_Mono'] exp-toggle"><i class="fas fa-chevron-down"></i> expandir
@@ -425,21 +425,21 @@
           </div>
 
           <!-- Exp 5 -->
-          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
-            <div class="w-28 flex-shrink-0 pt-1">
-              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2020—2024</p>
+          <div class="exp-item relative flex gap-3 sm:gap-6 mb-6 sm:mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-20 sm:w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-[10px] sm:text-xs text-[#823000]">2020—2024</p>
             </div>
             <div
-              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-emerald-500/30 transition-all duration-300">
-              <div class="flex items-start gap-3">
-                <span class="text-[#806AB7] font-semibold">Geógrafo | Analista de datos geoespaciales</span>
-                <span class="ml-auto text-xs text-[#823000]">Subsec. Salud Pública, SEREMI Valparaíso</span>
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-4 hover:border-emerald-500/30 transition-all duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                <span class="text-[#806AB7] font-semibold text-sm sm:text-base">Geógrafo | Analista de datos geoespaciales</span>
+                <span class="sm:ml-auto text-[10px] sm:text-xs text-[#823000]">Subsec. Salud Pública, SEREMI Valparaíso</span>
               </div>
               <div class="flex gap-2 mt-2">
                 <span
                   class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-sky-900/40 text-sky-300 border border-sky-500/20">Público</span>
               </div>
-              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Manejo y gestión de bases de datos
+              <p class="exp-desc text-[#806AB7] text-xs sm:text-sm mt-3 leading-relaxed hidden">Manejo y gestión de bases de datos
                 alfanuméricas. Análisis espacial de variables sanitarias, ambientales y sociales. Diseño, digitalización
                 y visualización de procesos territoriales. Actualización de planes y seguimiento de contingencias en
                 GRD. Referente Nacional Covid-19.</p>
@@ -449,21 +449,21 @@
           </div>
 
           <!-- Exp 6 -->
-          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
-            <div class="w-28 flex-shrink-0 pt-1">
-              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2020—2022</p>
+          <div class="exp-item relative flex gap-3 sm:gap-6 mb-6 sm:mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-20 sm:w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-[10px] sm:text-xs text-[#823000]">2020—2022</p>
             </div>
             <div
-              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-300">
-              <div class="flex items-start gap-3">
-                <span class="text-[#806AB7] font-semibold">Asistente Técnico de Investigación</span>
-                <span class="ml-auto text-xs text-[#823000]">Fundación Cosmos, UAH</span>
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-4 hover:border-purple-500/30 transition-all duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                <span class="text-[#806AB7] font-semibold text-sm sm:text-base">Asistente Técnico de Investigación</span>
+                <span class="sm:ml-auto text-[10px] sm:text-xs text-[#823000]">Fundación Cosmos, UAH</span>
               </div>
               <div class="flex gap-2 mt-2">
                 <span
                   class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-purple-900/40 text-[#806AB7] border border-purple-500/20">Privado</span>
               </div>
-              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Plan Maestro Ecosistema Humedal Río
+              <p class="exp-desc text-[#806AB7] text-xs sm:text-sm mt-3 leading-relaxed hidden">Plan Maestro Ecosistema Humedal Río
                 Maipo, Santo Domingo. Asistente técnico en confección y estudio de bases de datos espaciales.
                 Digitalización de entidades y fenómenos territoriales. Análisis estadístico de información
                 socioambiental y diseño de material cartográfico/visual.</p>
@@ -473,21 +473,21 @@
           </div>
 
           <!-- Exp 7 -->
-          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
-            <div class="w-28 flex-shrink-0 pt-1">
-              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2019—2020</p>
+          <div class="exp-item relative flex gap-3 sm:gap-6 mb-6 sm:mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-20 sm:w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-[10px] sm:text-xs text-[#823000]">2019—2020</p>
             </div>
             <div
-              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-300">
-              <div class="flex items-start gap-3">
-                <span class="text-[#806AB7] font-semibold">Líder de Investigación</span>
-                <span class="ml-auto text-xs text-[#823000]">Oraculus SpA</span>
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-3 sm:p-4 hover:border-purple-500/30 transition-all duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                <span class="text-[#806AB7] font-semibold text-sm sm:text-base">Líder de Investigación</span>
+                <span class="sm:ml-auto text-[10px] sm:text-xs text-[#823000]">Oraculus SpA</span>
               </div>
               <div class="flex gap-2 mt-2">
                 <span
                   class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-purple-900/40 text-[#806AB7] border border-purple-500/20">Privado</span>
               </div>
-              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Desarrollo de nuevas oportunidades
+              <p class="exp-desc text-[#806AB7] text-xs sm:text-sm mt-3 leading-relaxed hidden">Desarrollo de nuevas oportunidades
                 de negocio mediante análisis espacial avanzado. Manejo de bases de datos geoespaciales y alfanuméricas.
                 Levantamiento y análisis de información ambiental en proyectos empresariales.</p>
               <p class="text-[#8754FB] opacity-50 text-xs mt-2 font-['JetBrains_Mono'] exp-toggle"><i class="fas fa-chevron-down"></i> expandir
@@ -501,7 +501,7 @@
     <!-- ════════════════════════════════════════════ -->
     <!-- SECTION: FORMACIÓN ACADÉMICA                   -->
     <!-- ════════════════════════════════════════════ -->
-    <section id="formacion" class="px-8 py-16 border-t border-slate-800/50">
+    <section id="formacion" class="px-4 py-12 sm:px-8 sm:py-16 border-t border-slate-800/50">
       <div class="max-w-5xl mx-auto">
         <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// educacion.sh</p>
         <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-8">Formación Académica | Certificaciones</h2>
@@ -701,7 +701,7 @@
     <!-- ════════════════════════════════════════════ -->
     <!-- SECTION: PROYECTOS                             -->
     <!-- ════════════════════════════════════════════ -->
-    <section id="proyectos" class="px-8 py-16 border-t border-slate-800/50">
+    <section id="proyectos" class="px-4 py-12 sm:px-8 sm:py-16 border-t border-slate-800/50">
       <div class="max-w-5xl mx-auto">
         <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// proyectos.sh</p>
         <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-8">Proyectos Destacados</h2>
@@ -726,7 +726,7 @@
     <!-- ════════════════════════════════════════════ -->
     <!-- SECTION: CONMAPAS                              -->
     <!-- ════════════════════════════════════════════ -->
-    <section id="conmapas" class="px-8 py-16 border-t border-slate-800/50">
+    <section id="conmapas" class="px-4 py-12 sm:px-8 sm:py-16 border-t border-slate-800/50">
       <div class="max-w-5xl mx-auto">
         <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// conmapas.sh</p>
         <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-4">ConMapas</h2>
@@ -787,7 +787,7 @@
     <!-- ════════════════════════════════════════════ -->
     <!-- SECTION: PUBLICACIONES Y RECONOCIMIENTOS        -->
     <!-- ════════════════════════════════════════════ -->
-    <section id="publicaciones" class="px-8 py-16 border-t border-slate-800/50">
+    <section id="publicaciones" class="px-4 py-12 sm:px-8 sm:py-16 border-t border-slate-800/50">
       <div class="max-w-5xl mx-auto">
         <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// investigacion.sh</p>
         <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-8">Publicaciones | Reconocimientos</h2>
@@ -967,7 +967,7 @@
     <!-- ════════════════════════════════════════════ -->
     <!-- SECTION: CONTACTO                              -->
     <!-- ════════════════════════════════════════════ -->
-    <section id="contacto" class="px-8 py-16 border-t border-slate-800/50">
+    <section id="contacto" class="px-4 py-12 sm:px-8 sm:py-16 border-t border-slate-800/50">
       <div class="max-w-5xl mx-auto">
         <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// contacto.sh</p>
         <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-8">Contacto | Trabajemos Juntos</h2>
@@ -1080,7 +1080,7 @@
     <!-- ════════════════════════════════════════════ -->
     <!-- FOOTER                                         -->
     <!-- ════════════════════════════════════════════ -->
-    <footer class="px-8 py-10 bg-[#0b0a0d]/80 border-t border-slate-800/50">
+    <footer class="px-4 py-8 sm:px-8 sm:py-10 bg-[#0b0a0d]/80 border-t border-slate-800/50">
       <div class="max-w-5xl mx-auto">
         <!-- Topo separator -->
         <div class="h-px mb-8 bg-gradient-to-r from-transparent via-slate-700/30 to-transparent relative">
