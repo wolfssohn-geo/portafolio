@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eduardo Carvajal Polanco — Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bg-[#0b0a0d] text-[#b3bbc7] font-['Space_Mono'] h-screen w-full overflow-hidden m-0">
+
+  <!-- Topo pattern background -->
+  <canvas id="topo-canvas" class="fixed inset-0 w-full h-full opacity-[0.35] pointer-events-none z-0"></canvas>
+
+  <!-- ─── SIDEBAR ─── -->
+  <aside
+    class="fixed top-0 left-0 z-40 h-screen w-64 backdrop-blur-xl bg-[#0b0a0d]/70 border-r border-slate-700/30 flex flex-col p-6">
+    <div class="mb-8">
+      <h2 class="font-['JetBrains_Mono'] text-[#8754FB] text-sm tracking-widest">PORTAFOLIO</h2>
+      <div class="h-px bg-gradient-to-r from-purple-500/50 to-transparent mt-2"></div>
+    </div>
+    <nav class="flex flex-col flex-1" id="sidebar-nav">
+      <div class="flex flex-col gap-1">
+        <a href="#home"
+          class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#806AB7] hover:text-[#8754FB] hover:bg-slate-800/50 transition-all duration-300 text-sm">
+          <i class="fas fa-terminal w-4 text-[#8754FB] opacity-70"></i> Home / Bio
+        </a>
+        <a href="#proyectos"
+          class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#806AB7] hover:text-[#8754FB] hover:bg-slate-800/50 transition-all duration-300 text-sm">
+          <i class="fas fa-map w-4 text-emerald-400/70"></i> Proyectos Destacados
+        </a>
+        <a href="#publicaciones"
+          class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#806AB7] hover:text-[#8754FB] hover:bg-slate-800/50 transition-all duration-300 text-sm">
+          <i class="fas fa-flask w-4 text-[#823000]/70"></i> Investigación
+        </a>
+        <a href="#contacto"
+          class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#806AB7] hover:text-[#8754FB] hover:bg-slate-800/50 transition-all duration-300 text-sm">
+          <i class="fas fa-envelope w-4 text-fuchsia-400/70"></i> Contacto
+        </a>
+      </div>
+      <div class="flex-1 flex items-center justify-center overflow-hidden px-2 py-4">
+        <img src="Iso_EnfT-D_AMS.png" alt=""
+          class="max-h-[70%] w-auto opacity-[0.12] saturate-0 hover:opacity-[0.25] transition-opacity duration-500 pointer-events-none">
+      </div>
+    </nav>
+    <div class="text-xs text-[#823000] font-['JetBrains_Mono'] border-t border-slate-800 pt-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>System Online</span>
+      </div>
+      <div class="mt-1">v1.0 — 2026</div>
+    </div>
+    <button id="sidebar-toggle" class="absolute top-4 right-4 text-[#823000] hover:text-[#8754FB] lg:hidden">
+      <i class="fas fa-times"></i>
+    </button>
+  </aside>
+
+  <!-- Mobile overlay -->
+  <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-30 hidden lg:hidden"></div>
+
+  <!-- Mobile menu button -->
+  <button id="mobile-menu-btn"
+    class="fixed top-4 left-4 z-50 lg:hidden bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-lg p-2.5 text-[#8754FB]">
+    <i class="fas fa-bars text-lg"></i>
+  </button>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <main class="ml-64 h-screen overflow-y-auto scroll-smooth" id="main-content">
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- SECTION: HOME / HERO                           -->
+    <!-- ════════════════════════════════════════════ -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden px-8 py-16">
+
+      <div class="relative z-10 max-w-5xl mx-auto w-full">
+        <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 mb-6">
+          <div class="w-1/5 min-w-[80px] flex-shrink-0">
+            <img src="foto_perfil.jpeg" alt="Eduardo Carvajal Polanco" class="w-full rounded-2xl border border-purple-500/30 shadow-[0_0_15px_rgba(135,84,251,0.25)]" />
+          </div>
+          <div class="flex-1">
+            <h1 class="font-['JetBrains_Mono'] text-2xl md:text-4xl lg:text-5xl font-bold text-[#b3bbc7] min-h-[1.2em]" id="hero-name">
+            </h1>
+            <p class="font-['JetBrains_Mono'] text-sm md:text-base text-[#806AB7] mt-3 flex items-center gap-1">
+              <span class="text-[#8754FB]">></span>
+              <span id="hero-title"></span>
+              <span class="inline-block w-[2px] h-5 bg-[#8754FB] animate-pulse" id="hero-cursor"></span>
+            </p>
+            <p class="text-[#806AB7] text-xs md:text-sm mt-6 max-w-2xl border-l-2 border-[rgba(93,37,133,0.3)] pl-4 italic">
+              "Análisis territorial para la toma de decisiones basada en evidencia"
+            </p>
+          </div>
+        </div>
+
+        <!-- KPI Tiles -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10">
+          <a href="#experiencia"
+            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 text-center hover:border-purple-500/40 transition-all duration-300">
+            <div
+              class="absolute inset-0 rounded-xl bg-gradient-to-b from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            </div>
+            <i class="fas fa-calendar-alt text-[#8754FB] opacity-70 text-xl mb-2 relative"></i>
+            <p class="font-['JetBrains_Mono'] text-3xl font-bold text-[#8754FB] relative">8+</p>
+            <p class="text-[#8754FB] text-xs mt-1 relative tracking-wide">Años Experiencia</p>
+          </a>
+          <a href="#proyectos"
+            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 text-center hover:border-emerald-500/40 transition-all duration-300">
+            <div
+              class="absolute inset-0 rounded-xl bg-gradient-to-b from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            </div>
+            <i class="fas fa-project-diagram text-emerald-400/70 text-xl mb-2 relative"></i>
+            <p class="font-['JetBrains_Mono'] text-3xl font-bold text-emerald-300 relative">20+</p>
+            <p class="text-emerald-300 text-xs mt-1 relative tracking-wide">Proyectos Implementados</p>
+          </a>
+          <a href="#formacion"
+            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 text-center hover:border-purple-500/40 transition-all duration-300">
+            <div
+              class="absolute inset-0 rounded-xl bg-gradient-to-b from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            </div>
+            <i class="fas fa-award text-[#823000]/70 text-xl mb-2 relative"></i>
+            <p class="font-['JetBrains_Mono'] text-3xl font-bold text-[#823000] relative">30+</p>
+            <p class="text-[#823000] text-xs mt-1 relative tracking-wide">Certificaciones y Capacitaciones</p>
+          </a>
+          <a href="#publicaciones"
+            class="group relative backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 text-center hover:border-fuchsia-500/40 transition-all duration-300">
+            <div
+              class="absolute inset-0 rounded-xl bg-gradient-to-b from-fuchsia-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            </div>
+            <i class="fas fa-scroll text-fuchsia-300/70 text-xl mb-2 relative"></i>
+            <p class="font-['JetBrains_Mono'] text-3xl font-bold text-fuchsia-300 relative">12+</p>
+            <p class="text-fuchsia-300 text-xs mt-1 relative tracking-wide">Publicaciones y Reconocimientos</p>
+          </a>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4 mt-10">
+          <a href="#proyectos"
+            class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-purple-500/40 text-[#8754FB] font-['JetBrains_Mono'] text-sm tracking-wider overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(93,37,133,0.3)]">
+            <span
+              class="absolute inset-0 bg-purple-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+            <span class="relative"><i class="fas fa-chevron-circle-right"></i> Explorar Proyectos</span>
+          </a>
+          <a href="#contacto"
+            class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-fuchsia-500/40 text-fuchsia-300 font-['JetBrains_Mono'] text-sm tracking-wider overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(217,70,239,0.3)]">
+            <span
+              class="absolute inset-0 bg-fuchsia-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+            <span class="relative"><i class="fas fa-paper-plane"></i> Contactar</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- SECTION: BIO                                  -->
+    <!-- ════════════════════════════════════════════ -->
+    <section id="bio" class="px-8 py-16 border-t border-slate-800/50">
+      <div class="max-w-5xl mx-auto">
+        <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// bio.sh</p>
+        <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-6">Home/Bio</h2>
+
+        <p
+          class="text-[#b3bbc7] leading-relaxed max-w-4xl border border-slate-800/50 rounded-xl p-6 backdrop-blur-sm bg-slate-900/20">
+          Profesional con más de 8 años de experiencia en Sistemas de Información Geográfica (SIG),
+          softwares estadísticos y de programación con competencia espacial, visores web de información territorial,
+          coordinación de equipos multidisciplinarios, trabajo en terreno, vinculación con el medio y participación
+          ciudadana. Especialista en Ordenamiento Territorial, Gestión del Riesgo de Desastres (GRD) y Modelación
+          Espacial.
+        </p>
+
+        <!-- Tech Stack Dashboard -->
+        <h3 class="font-['JetBrains_Mono'] text-lg font-bold text-[#8754FB] mt-10 mb-4"># Tech Stack</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- SIG Avanzado -->
+          <div
+            class="backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-300">
+            <h4 class="font-['JetBrains_Mono'] text-xs text-[#8754FB] opacity-80 tracking-widest mb-3">SIG AVANZADO</h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-purple-500/50 hover:text-[#8754FB] shadow-[0_0_8px_rgba(135,84,251,0.3)] transition-all duration-300 cursor-default">QGIS</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-purple-500/50 hover:text-[#8754FB] shadow-[0_0_8px_rgba(135,84,251,0.3)] transition-all duration-300 cursor-default">ArcGIS
+                Pro/Online</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-purple-500/50 hover:text-[#8754FB] shadow-[0_0_8px_rgba(135,84,251,0.3)] transition-all duration-300 cursor-default">Google
+                Earth Eng.</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-purple-500/50 hover:text-[#8754FB] shadow-[0_0_8px_rgba(135,84,251,0.3)] transition-all duration-300 cursor-default">SAGA
+                GIS</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-purple-500/50 hover:text-[#8754FB] shadow-[0_0_8px_rgba(135,84,251,0.3)] transition-all duration-300 cursor-default">GeoLibre</span>
+            </div>
+          </div>
+          <!-- Programación Espacial -->
+          <div
+            class="backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-emerald-500/30 transition-all duration-300">
+            <h4 class="font-['JetBrains_Mono'] text-xs text-emerald-400/80 tracking-widest mb-3">PROGRAMACIÓN ESPACIAL</h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-emerald-500/50 hover:text-emerald-300 shadow-[0_0_8px_rgba(52,211,153,0.3)] transition-all duration-300 cursor-default">Python</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-emerald-500/50 hover:text-emerald-300 shadow-[0_0_8px_rgba(52,211,153,0.3)] transition-all duration-300 cursor-default">R</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-emerald-500/50 hover:text-emerald-300 shadow-[0_0_8px_rgba(52,211,153,0.3)] transition-all duration-300 cursor-default">JavaScript</span>
+            </div>
+          </div>
+          <!-- Visualización -->
+          <div
+            class="backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-300">
+            <h4 class="font-['JetBrains_Mono'] text-xs text-[#823000]/80 tracking-widest mb-3">VISUALIZACIÓN</h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-purple-500/50 hover:text-[#806AB7] shadow-[0_0_8px_rgba(135,84,251,0.3)] transition-all duration-300 cursor-default">Leaflet</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-purple-500/50 hover:text-[#806AB7] shadow-[0_0_8px_rgba(135,84,251,0.3)] transition-all duration-300 cursor-default">MapLibre
+                GL JS</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-purple-500/50 hover:text-[#806AB7] shadow-[0_0_8px_rgba(135,84,251,0.3)] transition-all duration-300 cursor-default">PowerBI</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-purple-500/50 hover:text-[#806AB7] shadow-[0_0_8px_rgba(135,84,251,0.3)] transition-all duration-300 cursor-default">Blender</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-purple-500/50 hover:text-[#806AB7] shadow-[0_0_8px_rgba(135,84,251,0.3)] transition-all duration-300 cursor-default">Photoshop/Illustrator</span>
+            </div>
+          </div>
+          <!-- Métodos Sociales -->
+          <div
+            class="backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-fuchsia-500/30 transition-all duration-300">
+            <h4 class="font-['JetBrains_Mono'] text-xs text-fuchsia-400/80 tracking-widest mb-3">MÉTODOS SOCIALES</h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-fuchsia-500/50 hover:text-fuchsia-300 shadow-[0_0_8px_rgba(217,70,239,0.3)] transition-all duration-300 cursor-default">MDGG</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-fuchsia-500/50 hover:text-fuchsia-300 shadow-[0_0_8px_rgba(217,70,239,0.3)] transition-all duration-300 cursor-default">Mapeo
+                de Actores</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-fuchsia-500/50 hover:text-fuchsia-300 shadow-[0_0_8px_rgba(217,70,239,0.3)] transition-all duration-300 cursor-default">Cartografías
+                Colaborativas</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-fuchsia-500/50 hover:text-fuchsia-300 shadow-[0_0_8px_rgba(217,70,239,0.3)] transition-all duration-300 cursor-default">Encuestas</span>
+              <span
+                class="tech-badge px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/40 text-xs text-[#b3bbc7] hover:border-fuchsia-500/50 hover:text-fuchsia-300 shadow-[0_0_8px_rgba(217,70,239,0.3)] transition-all duration-300 cursor-default">Entrevistas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Hitos -->
+        <h3 class="font-['JetBrains_Mono'] text-lg font-bold text-[#8754FB] mt-10 mb-4"># Timeline — Hitos por Año</h3>
+        <div class="flex items-center gap-0 overflow-x-auto pb-4" id="timeline">
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-[#823000] mt-2">2026</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Docente Postgrado-<br>Pregrado UAH</p>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-purple-500/50 to-slate-700/50 min-w-[60px]"></div>
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-emerald-400 mt-2">2025</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Asesor GRD-OT<br>Celeo Redes</p>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-emerald-500/50 to-slate-700/50 min-w-[60px]"></div>
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(93,37,133,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-[#8754FB] mt-2">2024</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Asesor GRD-OT<br>AChM-GORE RMS</p>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-purple-500/50 to-slate-700/50 min-w-[60px]"></div>
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-fuchsia-400 shadow-[0_0_10px_rgba(217,70,239,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-fuchsia-400 mt-2">2023</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Coordinación Regional<br>GRD-SSRV</p>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-fuchsia-500/50 to-slate-700/50 min-w-[60px]"></div>
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-[#823000] mt-2">2022</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Franz Edelman Award,<br>Equipo MINSAL</p>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-purple-500/50 to-slate-700/50 min-w-[60px]"></div>
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-emerald-400 mt-2">2021</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Referente Nacional<br>Información Territorial GRD-MINSAL</p>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-emerald-500/50 to-slate-700/50 min-w-[60px]"></div>
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(93,37,133,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-[#8754FB] mt-2">2020</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Mejor Rendimiento<br>Académico, Postgrado MOTyG UAH</p>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-purple-500/50 to-slate-700/50 min-w-[60px]"></div>
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-fuchsia-400 shadow-[0_0_10px_rgba(217,70,239,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-fuchsia-400 mt-2">2019</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Investigador<br>GeoSalud</p>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-fuchsia-500/50 to-slate-700/50 min-w-[60px]"></div>
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-[#823000] mt-2">2019</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Mejor Rendimiento<br>Académico, Geógrafo UAH</p>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-purple-500/50 to-slate-700/50 min-w-[60px]"></div>
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-emerald-400 mt-2">2018</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Encargado SIG-GAST<br>Estudiantes Geo-UAH</p>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-emerald-500/50 to-slate-700/50 min-w-[60px]"></div>
+          <div class="flex-shrink-0 flex flex-col items-center w-24">
+            <div class="w-3 h-3 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(93,37,133,0.5)]"></div>
+            <p class="font-['JetBrains_Mono'] text-xs text-[#8754FB] mt-2">2017</p>
+            <p class="text-[10px] text-[#823000] text-center mt-1">Investigador Pregrado<br>NUMIES</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- SECTION: EXPERIENCIA LABORAL                  -->
+    <!-- ════════════════════════════════════════════ -->
+    <section id="experiencia" class="px-8 py-16 border-t border-slate-800/50">
+      <div class="max-w-5xl mx-auto">
+        <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// experiencia.sh</p>
+        <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-8">Experiencia Laboral</h2>
+
+        <div class="relative" id="experience-list">
+          <div
+            class="absolute left-[116px] top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/30 via-slate-700/30 to-transparent"
+            id="data-stream-line"></div>
+
+          <!-- Exp 1 -->
+          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2025—Actualidad</p>
+            </div>
+            <div
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-300">
+              <div class="flex items-start gap-3">
+                <span class="text-[#806AB7] font-semibold">Especialista en Gestión del Riesgo de Desastres y Ordenamiento Territorial</span>
+                <span class="ml-auto text-xs text-[#823000]">Celeo Redes</span>
+              </div>
+              <div class="flex gap-2 mt-2">
+                <span
+                  class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-purple-900/40 text-[#806AB7] border border-purple-500/20">Privado</span>
+              </div>
+              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Diagnóstico, sistematización y
+                consolidación de datos para planes y procedimientos de GRD. Análisis de datos geoestadísticos y
+                socioambientales. Capacitación y coordinación de equipos multidisciplinarios.</p>
+              <p class="text-[#8754FB] opacity-50 text-xs mt-2 font-['JetBrains_Mono'] exp-toggle"><i class="fas fa-chevron-down"></i> expandir
+              </p>
+            </div>
+          </div>
+
+          <!-- Exp 2 -->
+          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2024—Actualidad</p>
+            </div>
+            <div
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-emerald-500/30 transition-all duration-300">
+              <div class="flex items-start gap-3">
+                <span class="text-[#806AB7] font-semibold">Especialista en Ordenamiento Territorial y Modelación Espacial</span>
+                <span class="ml-auto text-xs text-[#823000]">AChM - GORE RMS</span>
+              </div>
+              <div class="flex gap-2 mt-2">
+                <span
+                  class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-sky-900/40 text-sky-300 border border-sky-500/20">Público</span>
+              </div>
+              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Desarrollo de plataformas
+                territoriales integradas (SADE), modelos de escenarios de riesgo para 52 comunas, herramientas web de
+                visualización e interacción espacial, levantamiento de recursos y capacidades comunales.</p>
+              <p class="text-[#8754FB] opacity-50 text-xs mt-2 font-['JetBrains_Mono'] exp-toggle"><i class="fas fa-chevron-down"></i> expandir
+              </p>
+            </div>
+          </div>
+
+          <!-- Exp 3 -->
+          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2024—Actualidad</p>
+            </div>
+            <div
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-300">
+              <div class="flex items-start gap-3">
+                <span class="text-[#806AB7] font-semibold">Docente Postgrado y Pregrado</span>
+                <span class="ml-auto text-xs text-[#823000]">Facultad Cs. Sociales, Geografía, UAH</span>
+              </div>
+              <div class="flex gap-2 mt-2">
+                <span
+                  class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-amber-900/40 text-amber-300 border border-amber-500/20">Académico</span>
+              </div>
+              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Profesor en Magíster
+                Interdisciplinario en Intervención Social y Formación Complementaria de Geografía. Asignaturas:
+                Intervención Territorio II; Conmapas se habla: Geografía para los nuevos tiempos; Geotecnologías
+                aplicadas a GRD.</p>
+              <p class="text-[#8754FB] opacity-50 text-xs mt-2 font-['JetBrains_Mono'] exp-toggle"><i class="fas fa-chevron-down"></i> expandir
+              </p>
+            </div>
+          </div>
+
+          <!-- Exp 4 -->
+          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2020—Actualidad</p>
+            </div>
+            <div
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-fuchsia-500/30 transition-all duration-300">
+              <div class="flex items-start gap-3">
+                <span class="text-[#806AB7] font-semibold">Cofundador</span>
+                <span class="ml-auto text-xs text-[#823000]">Laboratorio ConMapas</span>
+              </div>
+              <div class="flex gap-2 mt-2">
+                <span
+                  class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-slate-800/80 text-[#806AB7] border border-slate-600/30">Independiente</span>
+              </div>
+              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Proyecto de difusión de dinámicas
+                socioterritoriales de contingencia a través de mapas en redes sociales. Análisis geoespacial avanzado y
+                herramientas de programación. Confección, diseño y composición de material cartográfico/visual.</p>
+              <p class="text-[#8754FB] opacity-50 text-xs mt-2 font-['JetBrains_Mono'] exp-toggle"><i class="fas fa-chevron-down"></i> expandir
+              </p>
+            </div>
+          </div>
+
+          <!-- Exp 5 -->
+          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2020—2024</p>
+            </div>
+            <div
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-emerald-500/30 transition-all duration-300">
+              <div class="flex items-start gap-3">
+                <span class="text-[#806AB7] font-semibold">Geógrafo | Analista de datos geoespaciales</span>
+                <span class="ml-auto text-xs text-[#823000]">Subsec. Salud Pública, SEREMI Valparaíso</span>
+              </div>
+              <div class="flex gap-2 mt-2">
+                <span
+                  class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-sky-900/40 text-sky-300 border border-sky-500/20">Público</span>
+              </div>
+              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Manejo y gestión de bases de datos
+                alfanuméricas. Análisis espacial de variables sanitarias, ambientales y sociales. Diseño, digitalización
+                y visualización de procesos territoriales. Actualización de planes y seguimiento de contingencias en
+                GRD. Referente Nacional Covid-19.</p>
+              <p class="text-[#8754FB] opacity-50 text-xs mt-2 font-['JetBrains_Mono'] exp-toggle"><i class="fas fa-chevron-down"></i> expandir
+              </p>
+            </div>
+          </div>
+
+          <!-- Exp 6 -->
+          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2020—2022</p>
+            </div>
+            <div
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-300">
+              <div class="flex items-start gap-3">
+                <span class="text-[#806AB7] font-semibold">Asistente Técnico de Investigación</span>
+                <span class="ml-auto text-xs text-[#823000]">Fundación Cosmos, UAH</span>
+              </div>
+              <div class="flex gap-2 mt-2">
+                <span
+                  class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-purple-900/40 text-[#806AB7] border border-purple-500/20">Privado</span>
+              </div>
+              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Plan Maestro Ecosistema Humedal Río
+                Maipo, Santo Domingo. Asistente técnico en confección y estudio de bases de datos espaciales.
+                Digitalización de entidades y fenómenos territoriales. Análisis estadístico de información
+                socioambiental y diseño de material cartográfico/visual.</p>
+              <p class="text-[#8754FB] opacity-50 text-xs mt-2 font-['JetBrains_Mono'] exp-toggle"><i class="fas fa-chevron-down"></i> expandir
+              </p>
+            </div>
+          </div>
+
+          <!-- Exp 7 -->
+          <div class="exp-item relative flex gap-6 mb-8 group cursor-pointer" onclick="toggleExp(this)">
+            <div class="w-28 flex-shrink-0 pt-1">
+              <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">2019—2020</p>
+            </div>
+            <div
+              class="flex-1 backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-300">
+              <div class="flex items-start gap-3">
+                <span class="text-[#806AB7] font-semibold">Líder de Investigación</span>
+                <span class="ml-auto text-xs text-[#823000]">Oraculus SpA</span>
+              </div>
+              <div class="flex gap-2 mt-2">
+                <span
+                  class="px-2 py-0.5 rounded text-[10px] font-['JetBrains_Mono'] bg-purple-900/40 text-[#806AB7] border border-purple-500/20">Privado</span>
+              </div>
+              <p class="exp-desc text-[#806AB7] text-sm mt-3 leading-relaxed hidden">Desarrollo de nuevas oportunidades
+                de negocio mediante análisis espacial avanzado. Manejo de bases de datos geoespaciales y alfanuméricas.
+                Levantamiento y análisis de información ambiental en proyectos empresariales.</p>
+              <p class="text-[#8754FB] opacity-50 text-xs mt-2 font-['JetBrains_Mono'] exp-toggle"><i class="fas fa-chevron-down"></i> expandir
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- SECTION: FORMACIÓN ACADÉMICA                   -->
+    <!-- ════════════════════════════════════════════ -->
+    <section id="formacion" class="px-8 py-16 border-t border-slate-800/50">
+      <div class="max-w-5xl mx-auto">
+        <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// educacion.sh</p>
+        <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-8">Formación Académica | Certificaciones</h2>
+
+        <!-- Large tile: Master -->
+        <div
+          class="cert-tile backdrop-blur-md bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-slate-700/30 rounded-xl p-6 mb-6 hover:border-purple-500/30 transition-all duration-500">
+          <div class="flex items-start gap-4">
+            <div
+              class="w-12 h-12 rounded-lg bg-purple-900/30 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-graduation-cap text-[#8754FB] text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-['JetBrains_Mono'] text-lg font-bold text-[#8754FB]">Magíster en Ordenamiento Territorial y Geografía
+              </h3>
+              <p class="text-[#806AB7] text-sm">Universidad Alberto Hurtado <span class="text-[#823000]">•</span>
+                2019-2021</p>
+              <p class="text-[#823000] text-xs mt-2 italic">Tesis: "Diagnóstico Espacio-Temporal de la Atención
+                Hospitalaria de Diabetes mellitus en los Servicios de Salud Metropolitanos Occidente y Sur"</p>
+              <p class="text-[#823000] text-xs">Proyecto Fondecyt Nro. 1190874</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium tile: Bachelor -->
+        <div
+          class="cert-tile backdrop-blur-md bg-gradient-to-br from-slate-900/50 to-slate-800/30 border border-slate-700/30 rounded-xl p-6 mb-6 hover:border-emerald-500/30 transition-all duration-500">
+          <div class="flex items-start gap-4">
+            <div
+              class="w-12 h-12 rounded-lg bg-emerald-900/30 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-university text-emerald-400 text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-['JetBrains_Mono'] text-lg font-bold text-emerald-300">Geógrafo | Licenciado en Geografía</h3>
+              <p class="text-[#806AB7] text-sm">Universidad Alberto Hurtado <span class="text-[#823000]">•</span>
+                2014-2018</p>
+              <p class="text-[#823000] text-xs mt-2 italic">Informe de Titulación: Evento de exposición a contaminantes
+                ambientales en Quintero y Puchuncaví, Centro Nacional de Enlace, Ministerio de Salud.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications grid -->
+        <h3 class="font-['JetBrains_Mono'] text-lg font-bold text-[#8754FB] mt-10 mb-4" id="certificaciones"># Certificaciones Destacadas</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="certs-grid">
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Introducción al Desarrollo Web</p>
+              <p class="text-xs text-[#823000]">Platzi — 2026</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Fundamentos de Computación e Informática: Terminal y Línea de Comandos</p>
+              <p class="text-xs text-[#823000]">Platzi — 2026</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Fundamentos de Ingeniería de Software</p>
+              <p class="text-xs text-[#823000]">Platzi — 2026</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Photoshop</p>
+              <p class="text-xs text-[#823000]">Platzi — 2026</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Inglés Intermedio B1</p>
+              <p class="text-xs text-[#823000]">Platzi — 2026</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Desarrollo Frontend con HTML</p>
+              <p class="text-xs text-[#823000]">Platzi — 2026</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">SIG y Teledetección con Python</p>
+              <p class="text-xs text-[#823000]">Udemy — 2025</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Machine Learning y Google Earth Engine</p>
+              <p class="text-xs text-[#823000]">Udemy — 2025</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Integrated Urban Flood Risk Management</p>
+              <p class="text-xs text-[#823000]">World Bank/Japan — 2024</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Urban Planning: Contemporary Garden City Concept from Asia
+              </p>
+              <p class="text-xs text-[#823000]">Univ. Tokio — 2024</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">SIG y Teledetección en R</p>
+              <p class="text-xs text-[#823000]">Udemy — 2024</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Introducción a GIS e IA: Detección de Basurales</p>
+              <p class="text-xs text-[#823000]">Fund. Bunge y Born — 2023</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Gobernanza Local: Humedales y Comunidades Sustentables</p>
+              <p class="text-xs text-[#823000]">PUC — 2023</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Metodologías para Matrices de Riesgo con Cambio Climático
+              </p>
+              <p class="text-xs text-[#823000]">DEGREYD MINSAL — 2023</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Integrated Spatial Planning</p>
+              <p class="text-xs text-[#823000]">UN Biodiversity Lab — 2022</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Cartografía Catastral</p>
+              <p class="text-xs text-[#823000]">IPGH, México — 2021</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Nuevos paradigmas en visualización de datos espaciales: R +
+                Leaflet</p>
+              <p class="text-xs text-[#823000]">MasterGIS — 2021</p>
+            </div>
+          </div>
+          <div
+            class="cert-tile backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-4 hover:border-purple-500/30 transition-all duration-500 flex items-start gap-3">
+            <i class="fas fa-certificate text-[#8754FB] opacity-60 mt-1"></i>
+            <div>
+              <p class="text-sm text-[#b3bbc7] font-medium">Programación Estadística con R</p>
+              <p class="text-xs text-[#823000]">UNAM — 2020</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- SECTION: PROYECTOS                             -->
+    <!-- ════════════════════════════════════════════ -->
+    <section id="proyectos" class="px-8 py-16 border-t border-slate-800/50">
+      <div class="max-w-5xl mx-auto">
+        <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// proyectos.sh</p>
+        <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-8">Proyectos Destacados</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="proyectos-grid"></div>
+      </div>
+
+      <!-- Modal -->
+      <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden p-4">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div
+          class="relative backdrop-blur-xl bg-slate-900/90 border border-slate-700/50 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl">
+          <button onclick="closeModal()"
+            class="absolute top-4 right-4 text-[#823000] hover:text-[#8754FB] transition-colors">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+          <div id="modal-content"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- SECTION: CONMAPAS                              -->
+    <!-- ════════════════════════════════════════════ -->
+    <section id="conmapas" class="px-8 py-16 border-t border-slate-800/50">
+      <div class="max-w-5xl mx-auto">
+        <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// conmapas.sh</p>
+        <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-4">ConMapas</h2>
+        <p class="text-[#806AB7] text-sm mb-8 max-w-2xl">Difusión de dinámicas socioterritoriales de contingencia a
+          través de mapas en redes sociales.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <div
+            class="group backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl overflow-hidden hover:border-purple-500/30 transition-all duration-300">
+            <div class="h-36 bg-slate-900 flex items-center justify-center overflow-hidden">
+              <img src="v2_NDMI-Valdi_2026.png" alt="Mapas de Contingencias"
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+            </div>
+            <div class="p-4">
+              <h4 class="text-sm text-[#b3bbc7] font-medium">Mapas de Contingencias</h4>
+              <p class="text-xs text-[#823000] mt-1">Análisis territorial de contingencias</p>
+              <a href="https://www.instagram.com/p/DX79WoSgID3/?img_index=1" target="_blank" rel="noopener noreferrer" class="text-xs text-[#8754FB] opacity-70 hover:text-[#8754FB] mt-2 inline-flex items-center gap-1">Ver
+                más <i class="fas fa-external-link-alt text-[10px]"></i></a>
+            </div>
+          </div>
+          <div
+            class="group backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300">
+            <div class="h-36 bg-slate-900 flex items-center justify-center overflow-hidden">
+              <img src="v4_Cob-Bomberos_AMS.jpg" alt="Visualización de Datos"
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+            </div>
+            <div class="p-4">
+              <h4 class="text-sm text-[#b3bbc7] font-medium">Visualización de Datos</h4>
+              <p class="text-xs text-[#823000] mt-1">Perspectivas espaciales para datos cotidianos</p>
+              <a href="https://www.instagram.com/p/CwBJ91EAiHg/?img_index=1" target="_blank" rel="noopener noreferrer" class="text-xs text-[#8754FB] opacity-70 hover:text-[#8754FB] mt-2 inline-flex items-center gap-1">Ver
+                más <i class="fas fa-external-link-alt text-[10px]"></i></a>
+            </div>
+          </div>
+          <div
+            class="group backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl overflow-hidden hover:border-purple-500/30 transition-all duration-300">
+            <div class="h-36 bg-slate-900 flex items-center justify-center overflow-hidden">
+              <img src="Manifestaciones_18oct-18nov_2019.jpeg" alt="Cartografías Colaborativas"
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+            </div>
+            <div class="p-4">
+              <h4 class="text-sm text-[#b3bbc7] font-medium">Cartografías Colaborativas</h4>
+              <p class="text-xs text-[#823000] mt-1">Mapeo participativo</p>
+              <a href="https://www.instagram.com/p/CVMD7DPJ_Wn/?img_index=1" target="_blank" rel="noopener noreferrer" class="text-xs text-[#8754FB] opacity-70 hover:text-[#8754FB] mt-2 inline-flex items-center gap-1">Ver
+                más <i class="fas fa-external-link-alt text-[10px]"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://www.instagram.com/conmapas" target="_blank" rel="noopener noreferrer"
+          class="group inline-flex items-center gap-3 px-6 py-3 rounded-lg border border-purple-500/40 text-[#8754FB] font-['JetBrains_Mono'] text-sm tracking-wider transition-all duration-300 hover:shadow-[0_0_25px_rgba(93,37,133,0.3)]">
+          <i class="fab fa-instagram"></i>
+          <span>Visitar ConMapas (@conmapas)</span>
+          <i class="fas fa-external-link-alt text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- SECTION: PUBLICACIONES Y RECONOCIMIENTOS        -->
+    <!-- ════════════════════════════════════════════ -->
+    <section id="publicaciones" class="px-8 py-16 border-t border-slate-800/50">
+      <div class="max-w-5xl mx-auto">
+        <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// investigacion.sh</p>
+        <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-8">Publicaciones | Reconocimientos</h2>
+
+        <!-- Tabs -->
+        <div class="flex gap-1 mb-6 border-b border-slate-800">
+          <button
+            class="tab-btn px-4 py-2 text-sm font-['JetBrains_Mono'] text-[#8754FB] border-b-2 border-purple-500 transition-colors duration-300"
+            data-tab="publicaciones" onclick="switchTab('publicaciones')">
+            <i class="fas fa-file-alt mr-1"></i> Publicaciones
+          </button>
+          <button
+            class="tab-btn px-4 py-2 text-sm font-['JetBrains_Mono'] text-[#823000] border-b-2 border-transparent hover:text-[#b3bbc7] transition-colors duration-300"
+            data-tab="reconocimientos" onclick="switchTab('reconocimientos')">
+            <i class="fas fa-trophy mr-1"></i> Reconocimientos
+          </button>
+        </div>
+
+        <!-- Publicaciones -->
+        <div id="tab-publicaciones" class="tab-content space-y-4">
+          <div
+            class="backdrop-blur-md bg-slate-900/20 border border-slate-800/50 rounded-xl p-4 hover:border-purple-500/20 transition-all duration-300">
+            <p class="text-sm text-[#b3bbc7] leading-relaxed">Carvajal, E., & Bunster, D. (2024). Condiciones de sanidad
+              ambiental en los campamentos de Santiago: Una mirada desde la participación ciudadana y la colectividad
+              barrial. <span class="italic">Persona y Sociedad</span>, 38(2), 47-68.</p>
+            <a href="https://www.researchgate.net/publication/387663531_Condiciones_de_sanidad_ambiental_en_los_campamentos_de_Santiago_Una_mirada_desde_la_participacion_ciudadana_y_la_colectividad_barrial"
+              target="_blank" rel="noopener noreferrer"
+              class="text-xs text-[#8754FB] opacity-70 hover:text-[#8754FB] mt-2 inline-flex items-center gap-1"><i
+                class="fas fa-external-link-alt"></i> Link</a>
+          </div>
+          <div
+            class="backdrop-blur-md bg-slate-900/20 border border-slate-800/50 rounded-xl p-4 hover:border-purple-500/20 transition-all duration-300">
+            <p class="text-sm text-[#b3bbc7] leading-relaxed">Carvajal, E. (2022). Propuesta de áreas óptimas para la
+              implementación de un centro de Atención Primaria en Salud: Caso de estudio, Padre Hurtado, Región
+              Metropolitana. <span class="italic">Persona y Sociedad</span>, 36(2), 117-131.</p>
+            <a href="https://www.researchgate.net/publication/366893542_Propuesta_de_areas_optimas_para_la_implementacion_de_un_centro_de_Atencion_Primaria_en_Salud_Caso_de_estudio_Padre_Hurtado_Region_Metropolitana"
+              target="_blank" rel="noopener noreferrer"
+              class="text-xs text-[#8754FB] opacity-70 hover:text-[#8754FB] mt-2 inline-flex items-center gap-1"><i
+                class="fas fa-external-link-alt"></i> Link</a>
+          </div>
+          <div
+            class="backdrop-blur-md bg-slate-900/20 border border-slate-800/50 rounded-xl p-4 hover:border-purple-500/20 transition-all duration-300">
+            <p class="text-sm text-[#b3bbc7] leading-relaxed">Fuenzalida, M., & Carvajal, E. (2022). Distribución
+              espacio-temporal de la atención hospitalaria por diabetes mellitus. El caso de los servicios de salud
+              metropolitanos occidente y sur, Chile. <span class="italic">Revista Geográfica de Chile Terra
+                Australis</span>.</p>
+            <a href="https://www.researchgate.net/publication/369425860_Spatio-temporal_distribution_of_hospital_care_for_diabetes_Mellitus_The_case_of_the_Western_and_Southern_Metropolitan_Health_Services_Chile"
+              target="_blank" rel="noopener noreferrer"
+              class="text-xs text-[#8754FB] opacity-70 hover:text-[#8754FB] mt-2 inline-flex items-center gap-1"><i
+                class="fas fa-external-link-alt"></i> Link</a>
+          </div>
+          <div
+            class="backdrop-blur-md bg-slate-900/20 border border-slate-800/50 rounded-xl p-4 hover:border-purple-500/20 transition-all duration-300">
+            <p class="text-sm text-[#b3bbc7] leading-relaxed">Hurtado, P., Urrejola, D., Correa, F., Fuenzalida, M.,
+              Negrete, J., Veas, C., Contreras, P., Lara, S., Grandón, E., Carvajal, E. (2021). Plan Maestro Ecosistema
+              Humedal Río Maipo, Santo Domingo [Informe técnico].</p>
+            <a href="https://www.researchgate.net/publication/408096531_Plan_Maestro_Ecosistema_Humedal_Rio_Maipo_Santo_Domingo"
+              target="_blank" rel="noopener noreferrer"
+              class="text-xs text-[#8754FB] opacity-70 hover:text-[#8754FB] mt-2 inline-flex items-center gap-1"><i
+                class="fas fa-external-link-alt"></i> Link</a>
+          </div>
+          <div
+            class="backdrop-blur-md bg-slate-900/20 border border-slate-800/50 rounded-xl p-4 hover:border-purple-500/20 transition-all duration-300">
+            <p class="text-sm text-[#b3bbc7] leading-relaxed">Carvajal, E. & Fuenzalida, M. (2019). Desigualdades en la
+              atención hospitalaria por diabetes mellitus: Caso de estudio en Santiago y Maipú. <span
+                class="italic">Seminario Salud y Territorio 2019</span>.</p>
+            <a href="https://www.researchgate.net/publication/342666487_Desigualdades_en_la_atencion_hospitalaria_por_diabetes_mellitus_Caso_de_estudio_en_Santiago_y_Maipu"
+              target="_blank" rel="noopener noreferrer"
+              class="text-xs text-[#8754FB] opacity-70 hover:text-[#8754FB] mt-2 inline-flex items-center gap-1"><i
+                class="fas fa-external-link-alt"></i> Link</a>
+          </div>
+          <div
+            class="backdrop-blur-md bg-slate-900/20 border border-slate-800/50 rounded-xl p-4 hover:border-purple-500/20 transition-all duration-300">
+            <p class="text-sm text-[#b3bbc7] leading-relaxed">Carvajal, E. & Fuenzalida, M. (2019). Desigualdades en la
+              atención hospitalaria por diabetes mellitus en el Servicio de Salud Metropolitano Central, Chile. <span
+                class="italic">Revista Universitaria de Geografía</span>.</p>
+            <a href="https://www.researchgate.net/publication/337168149_Desigualdades_en_la_atencion_hospitalaria_por_diabetes_mellitus_en_el_Servicio_de_Salud_Metropolitano_Central_Chile"
+              target="_blank" rel="noopener noreferrer"
+              class="text-xs text-[#8754FB] opacity-70 hover:text-[#8754FB] mt-2 inline-flex items-center gap-1"><i
+                class="fas fa-external-link-alt"></i> Link</a>
+          </div>
+          <div
+            class="backdrop-blur-md bg-slate-900/20 border border-slate-800/50 rounded-xl p-4 hover:border-purple-500/20 transition-all duration-300">
+            <p class="text-sm text-[#b3bbc7] leading-relaxed">Fuenzalida, M., Araos, J., Carvajal, E., Pérez, K. (2018).
+              Ir a terreno como estrategia docente para la enseñanza universitaria de la Geografía.</p>
+            <a href="https://www.researchgate.net/publication/342666487_Desigualdades_en_la_atencion_hospitalaria_por_diabetes_mellitus_Caso_de_estudio_en_Santiago_y_Maipu"
+              target="_blank" rel="noopener noreferrer"
+              class="text-xs text-[#8754FB] opacity-70 hover:text-[#8754FB] mt-2 inline-flex items-center gap-1"><i
+                class="fas fa-external-link-alt"></i> Link</a>
+          </div>
+        </div>
+
+        <!-- Reconocimientos -->
+        <div id="tab-reconocimientos" class="tab-content hidden space-y-4">
+          <div
+            class="backdrop-blur-md bg-gradient-to-br from-slate-900/30 to-slate-800/20 border border-slate-700/30 rounded-xl p-5 hover:border-amber-500/30 transition-all duration-300 flex items-start gap-4">
+            <div
+              class="w-10 h-10 rounded-full bg-amber-900/30 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-trophy text-amber-400"></i>
+            </div>
+            <div>
+              <h4 class="text-sm text-[#b3bbc7] font-medium">Franz Edelman Award 2022</h4>
+              <p class="text-xs text-[#823000]">Analytics Saves Lives During the COVID-19 Crisis in Chile</p>
+            </div>
+          </div>
+          <div
+            class="backdrop-blur-md bg-gradient-to-br from-slate-900/30 to-slate-800/20 border border-slate-700/30 rounded-xl p-5 hover:border-purple-500/30 transition-all duration-300 flex items-start gap-4">
+            <div
+              class="w-10 h-10 rounded-full bg-purple-900/30 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-medal text-[#8754FB]"></i>
+            </div>
+            <div>
+              <h4 class="text-sm text-[#b3bbc7] font-medium">Beca Universidad de Tokio, Japón</h4>
+              <p class="text-xs text-[#823000]">Contemporary Garden City Concept from Asia, 2024</p>
+            </div>
+          </div>
+          <div
+            class="backdrop-blur-md bg-gradient-to-br from-slate-900/30 to-slate-800/20 border border-slate-700/30 rounded-xl p-5 hover:border-emerald-500/30 transition-all duration-300 flex items-start gap-4">
+            <div
+              class="w-10 h-10 rounded-full bg-emerald-900/30 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-medal text-emerald-400"></i>
+            </div>
+            <div>
+              <h4 class="text-sm text-[#b3bbc7] font-medium">Beca Fundación Bunge y Born, Argentina</h4>
+              <p class="text-xs text-[#823000]">Introducción a GIS e IA, 2023</p>
+            </div>
+          </div>
+          <div
+            class="backdrop-blur-md bg-gradient-to-br from-slate-900/30 to-slate-800/20 border border-slate-700/30 rounded-xl p-5 hover:border-purple-500/30 transition-all duration-300 flex items-start gap-4">
+            <div
+              class="w-10 h-10 rounded-full bg-purple-900/30 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-medal text-[#823000]"></i>
+            </div>
+            <div>
+              <h4 class="text-sm text-[#b3bbc7] font-medium">Beca Gobierno Regional de Valparaíso</h4>
+              <p class="text-xs text-[#823000]">Gobernanza Local: Humedales, 2023</p>
+            </div>
+          </div>
+          <div
+            class="backdrop-blur-md bg-gradient-to-br from-slate-900/30 to-slate-800/20 border border-slate-700/30 rounded-xl p-5 hover:border-fuchsia-500/30 transition-all duration-300 flex items-start gap-4">
+            <div
+              class="w-10 h-10 rounded-full bg-fuchsia-900/30 border border-fuchsia-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-medal text-fuchsia-400"></i>
+            </div>
+            <div>
+              <h4 class="text-sm text-[#b3bbc7] font-medium">Beca Instituto Panamericano de Historia y Geografía, México
+              </h4>
+              <p class="text-xs text-[#823000]">Cartografía Catastral, 2021</p>
+            </div>
+          </div>
+          <div
+            class="backdrop-blur-md bg-gradient-to-br from-slate-900/30 to-slate-800/20 border border-slate-700/30 rounded-xl p-5 hover:border-purple-500/30 transition-all duration-300 flex items-start gap-4">
+            <div
+              class="w-10 h-10 rounded-full bg-purple-900/30 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-crown text-[#8754FB]"></i>
+            </div>
+            <div>
+              <h4 class="text-sm text-[#b3bbc7] font-medium">Primer lugar ranking académico</h4>
+              <p class="text-xs text-[#823000]">Magíster OT y Geografía, UAH, 2020</p>
+            </div>
+          </div>
+          <div
+            class="backdrop-blur-md bg-gradient-to-br from-slate-900/30 to-slate-800/20 border border-slate-700/30 rounded-xl p-5 hover:border-purple-500/30 transition-all duration-300 flex items-start gap-4">
+            <div
+              class="w-10 h-10 rounded-full bg-purple-900/30 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-crown text-[#8754FB]"></i>
+            </div>
+            <div>
+              <h4 class="text-sm text-[#b3bbc7] font-medium">Primer lugar ranking académico</h4>
+              <p class="text-xs text-[#823000]">Geografía, UAH, 2018</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- SECTION: CONTACTO                              -->
+    <!-- ════════════════════════════════════════════ -->
+    <section id="contacto" class="px-8 py-16 border-t border-slate-800/50">
+      <div class="max-w-5xl mx-auto">
+        <p class="font-['JetBrains_Mono'] text-[#8754FB] opacity-60 text-xs mb-1 tracking-wider">// contacto.sh</p>
+        <h2 class="font-['JetBrains_Mono'] text-2xl font-bold text-[#8754FB] mb-8">Contacto | Trabajemos Juntos</h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Form -->
+          <div class="backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-6">
+            <form id="contact-form" onsubmit="handleSubmit(event)">
+              <div class="mb-4">
+                <label class="font-['JetBrains_Mono'] text-xs text-[#823000] mb-1 block">Nombre</label>
+                <input type="text" id="form-name" required
+                  class="w-full bg-[#0b0a0d]/50 border border-slate-700/50 rounded-lg px-4 py-2.5 text-sm text-[#b3bbc7] font-['JetBrains_Mono'] placeholder:text-[#823000] focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_10px_rgba(93,37,133,0.1)] transition-all duration-300"
+                  placeholder="ingrese nombre...">
+              </div>
+              <div class="mb-4">
+                <label class="font-['JetBrains_Mono'] text-xs text-[#823000] mb-1 block">Correo</label>
+                <input type="email" id="form-email" required
+                  class="w-full bg-[#0b0a0d]/50 border border-slate-700/50 rounded-lg px-4 py-2.5 text-sm text-[#b3bbc7] font-['JetBrains_Mono'] placeholder:text-[#823000] focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_10px_rgba(93,37,133,0.1)] transition-all duration-300"
+                  placeholder="ingrese email...">
+              </div>
+              <div class="mb-4">
+                <label class="font-['JetBrains_Mono'] text-xs text-[#823000] mb-1 block">Asunto</label>
+                <select id="form-subject"
+                  class="w-full bg-[#0b0a0d]/50 border border-slate-700/50 rounded-lg px-4 py-2.5 text-sm text-[#b3bbc7] font-['JetBrains_Mono'] focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_10px_rgba(93,37,133,0.1)] transition-all duration-300">
+                  <option value="Proyecto">Proyecto</option>
+                  <option value="Colaboracion">Colaboración</option>
+                  <option value="Asesoria">Asesoría</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+              <div class="mb-4">
+                <label class="font-['JetBrains_Mono'] text-xs text-[#823000] mb-1 block">Mensaje</label>
+                <textarea id="form-message" required rows="4"
+                  class="w-full bg-[#0b0a0d]/50 border border-slate-700/50 rounded-lg px-4 py-2.5 text-sm text-[#b3bbc7] font-['JetBrains_Mono'] placeholder:text-[#823000] focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_10px_rgba(93,37,133,0.1)] transition-all duration-300 resize-none"
+                  placeholder="escriba mensaje..."></textarea>
+              </div>
+              <button type="submit" id="submit-btn"
+                class="group w-full relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-purple-500/40 text-[#8754FB] font-['JetBrains_Mono'] text-sm tracking-wider overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(93,37,133,0.3)]">
+                <span
+                  class="absolute inset-0 bg-purple-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                <span class="relative flex items-center gap-2">
+                  Transmitir
+                  <span id="submit-arrow">→</span>
+                </span>
+              </button>
+              <p id="form-status" class="text-xs text-emerald-400/70 font-['JetBrains_Mono'] mt-3 hidden"><i
+                  class="fas fa-check-circle"></i> Mensaje transmitido correctamente</p>
+            </form>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="space-y-4">
+            <div
+              class="backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 flex items-center gap-4 hover:border-purple-500/30 transition-all duration-300">
+              <i class="fas fa-envelope text-[#8754FB] opacity-70 text-xl"></i>
+              <div>
+                <p class="text-xs text-[#823000] font-['JetBrains_Mono']">EMAIL</p>
+                <a href="mailto:carvajalpolanco.eduardo@gmail.com"
+                  class="text-sm text-[#b3bbc7] hover:text-[#8754FB] transition-colors">carvajalpolanco.eduardo@gmail.com</a>
+              </div>
+            </div>
+            <div
+              class="backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 flex items-center gap-4 hover:border-emerald-500/30 transition-all duration-300">
+              <i class="fab fa-linkedin text-emerald-400/70 text-xl"></i>
+              <div>
+                <p class="text-xs text-[#823000] font-['JetBrains_Mono']">LINKEDIN</p>
+                <a href="https://www.linkedin.com/in/geoecarvajalp/" target="_blank" rel="noopener noreferrer"
+                  class="text-sm text-[#b3bbc7] hover:text-emerald-300 transition-colors">linkedin.com/in/geoecarvajalp/</a>
+              </div>
+            </div>
+            <div
+              class="backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 flex items-center gap-4 hover:border-purple-500/30 transition-all duration-300">
+              <i class="fab fa-github text-[#823000]/70 text-xl"></i>
+              <div>
+                <p class="text-xs text-[#823000] font-['JetBrains_Mono']">GITHUB</p>
+                <a href="https://github.com/wolfssohn" target="_blank" rel="noopener noreferrer"
+                  class="text-sm text-[#b3bbc7] hover:text-[#806AB7] transition-colors">github.com/wolfssohn</a>
+              </div>
+            </div>
+            <div
+              class="backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 flex items-center gap-4 hover:border-fuchsia-500/30 transition-all duration-300">
+              <i class="fab fa-instagram text-fuchsia-400/70 text-xl"></i>
+              <div>
+                <p class="text-xs text-[#823000] font-['JetBrains_Mono']">INSTAGRAM</p>
+                <a href="https://instagram.com/conmapas" target="_blank" rel="noopener noreferrer"
+                  class="text-sm text-[#b3bbc7] hover:text-fuchsia-300 transition-colors">@conmapas</a>
+              </div>
+            </div>
+            <!-- Mini map placeholder -->
+            <div
+              class="backdrop-blur-md bg-slate-900/30 border border-slate-700/30 rounded-xl p-5 hover:border-purple-500/30 transition-all duration-300">
+              <p class="text-xs text-[#823000] font-['JetBrains_Mono'] mb-2">SEÑAL</p>
+              <div
+                class="h-20 rounded-lg bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700/30 flex items-center justify-center">
+                <div class="flex items-center gap-2 text-[#823000]">
+                  <span class="relative flex h-3 w-3">
+                    <span
+                      class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[#8754FB]"></span>
+                  </span>
+                  <span class="font-['JetBrains_Mono'] text-xs">Señal recibida — Santiago, Chile</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- FOOTER                                         -->
+    <!-- ════════════════════════════════════════════ -->
+    <footer class="px-8 py-10 bg-[#0b0a0d]/80 border-t border-slate-800/50">
+      <div class="max-w-5xl mx-auto">
+        <!-- Topo separator -->
+        <div class="h-px mb-8 bg-gradient-to-r from-transparent via-slate-700/30 to-transparent relative">
+          <div class="absolute inset-0 flex justify-between text-slate-800/20 text-xs font-['JetBrains_Mono'] -top-2 select-none">
+            <span>_ _ _ _ _</span><span>_ _ _ _ _</span><span>_ _ _ _ _</span><span>_ _ _ _ _</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+          <div>
+            <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">SISTEMA</p>
+            <p class="text-[#806AB7] mt-1 font-['JetBrains_Mono']">Portafolio v1.0 <span class="text-[#823000]">— 2026</span></p>
+            <p class="text-xs text-[#823000] mt-1 font-['JetBrains_Mono']">build: 20260701</p>
+          </div>
+          <div>
+            <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">ENLACES</p>
+            <div class="mt-1 space-y-1">
+              <a href="#home" class="block text-[#806AB7] hover:text-[#8754FB] transition-colors font-['JetBrains_Mono'] text-xs">>
+                home</a>
+              <a href="#proyectos"
+                class="block text-[#806AB7] hover:text-[#8754FB] transition-colors font-['JetBrains_Mono'] text-xs">> proyectos</a>
+              <a href="#publicaciones"
+                class="block text-[#806AB7] hover:text-[#8754FB] transition-colors font-['JetBrains_Mono'] text-xs">> investigación</a>
+              <a href="#contacto" class="block text-[#806AB7] hover:text-[#8754FB] transition-colors font-['JetBrains_Mono'] text-xs">>
+                contacto</a>
+            </div>
+          </div>
+          <div>
+            <p class="font-['JetBrains_Mono'] text-xs text-[#823000]">CONSOLA</p>
+            <p class="text-[#806AB7] mt-1 font-['JetBrains_Mono']" id="footer-console">
+              <span class="text-[#8754FB] opacity-70">></span> Transformando datos en decisiones territoriales inteligentes
+              <span class="inline-block w-[2px] h-4 bg-purple-400 animate-pulse ml-1"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ─── JAVASCRIPT ─── -->
+  <script>
+    // ─── DATA ───
+    const proyectos = [
+      {
+        id: 0,
+        nombre: 'Plataforma SIGER-Condor',
+        periodo: '2024—2026',
+        desc: '52 Comunas, Escenarios de Riesgo (AChM/GORE RMS)',
+        tags: ['GEE', 'ArcGIS', 'SAGA', 'Python', 'GRD'],
+        color: 'cyan',
+        img: 'Home_SIGER-Condor.png',
+        url: 'https://www.condorgs.cl/portal/apps/experiencebuilder/experience/?id=8972018452594b22949b189ce7f95336&page=page_23&views=view_71'
+      },
+      {
+        id: 3,
+        nombre: 'ConMapas - Mapeo Cotidiano',
+        periodo: '2020—2026',
+        desc: 'Mapas de Contingencia (ConMapas)',
+        tags: ['QGIS', 'GEE', 'Python', 'R', 'JS', 'Felt', 'AP+AI'],
+        color: 'fuchsia',
+        img: 'Home_Conmapas.png',
+        url: 'https://www.instagram.com/conmapas/'
+      },
+      {
+        id: 2,
+        nombre: 'Monitoreo Aedes Aegypti',
+        periodo: '2023—2024',
+        desc: 'Coordinación Regional GRD (SSRV)',
+        tags: ['QGIS', 'R', 'Felt', 'GRD'],
+        color: 'purple',
+        img: 'Platform_Aedes.png',
+        url: 'https://www.minsal.cl/dengue/'
+      },
+      {
+        id: 1,
+        nombre: 'Modelos Espaciales Covid-19',
+        periodo: '2020—2022',
+        desc: 'Franz Edelman Award (MINSAL)',
+        tags: ['QGIS', 'Leaflet', 'Felt', 'GRD'],
+        color: 'emerald',
+        img: 'Home_Covid-Analitycs.png',
+        url: 'https://covidanalytics.isci.cl/'
+      },
+      {
+        id: 4,
+        nombre: 'Plan Maestro Humedal Río Maipo',
+        periodo: '2020—2022',
+        desc: 'Fundación Cosmos (UAH)',
+        tags: ['QGIS', 'SAGA', 'AP+AI'],
+        color: 'cyan',
+        img: 'Home_PHRM.png',
+        url: 'https://humedalriomaipo.cl/'
+      },
+      {
+        id: 5,
+        nombre: 'Análisis Territorial Diabetes',
+        periodo: '2019—2022',
+        desc: 'FONDECYT Nro. 1190874 (GeoSalud)',
+        tags: ['QGIS', 'R', 'AP+AI'],
+        color: 'emerald',
+        img: 'Home_Geosalud.png',
+        url: 'https://www.instagram.com/geosalud_uah/'
+      },
+      {
+        id: 6,
+        nombre: 'Exposición a Contaminantes Quintero-Puchuncaví',
+        periodo: '2018—2019',
+        desc: 'Centro Nacional de Enlace (MINSAL)',
+        tags: ['QGIS', 'ArcGIS', 'SAGA', 'GRD'],
+        color: 'purple',
+        img: 'Platform_CQP.jpeg',
+        url: 'https://ppda.mma.gob.cl/valparaiso/ppda-concon-quintero-puchuncavi/'
+      },
+      {
+        id: 7,
+        nombre: 'Análisis Territorial Polimetales',
+        periodo: '2017',
+        desc: 'FONDECYT N°1170153 (NUMIES)',
+        tags: ['QGIS', 'R'],
+        color: 'fuchsia',
+        img: 'Home_Numies.png',
+        url: 'https://numies.cl/'
+      }
+    ];
+
+    const colorMap = {
+      cyan: { border: 'border-purple-500/30', hover: 'hover:border-purple-500/50', text: 'text-[#8754FB]', bg: 'bg-purple-900/20', icon: 'fa-globe' },
+      emerald: { border: 'border-emerald-500/30', hover: 'hover:border-emerald-500/50', text: 'text-emerald-300', bg: 'bg-emerald-900/20', icon: 'fa-chart-line' },
+      purple: { border: 'border-purple-500/30', hover: 'hover:border-purple-500/50', text: 'text-[#806AB7]', bg: 'bg-purple-900/20', icon: 'fa-map' },
+      fuchsia: { border: 'border-fuchsia-500/30', hover: 'hover:border-fuchsia-500/50', text: 'text-fuchsia-300', bg: 'bg-fuchsia-900/20', icon: 'fa-draw-polygon' }
+    };
+
+    // ─── SANITIZE ───
+    function sanitize(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // ─── RENDER PROJECTS ───
+    function renderProyectos() {
+      const grid = document.getElementById('proyectos-grid');
+      grid.innerHTML = proyectos.map(p => {
+        const c = colorMap[p.color];
+        const tags = p.tags.map(t => `<span class="text-[10px] px-1.5 py-0.5 rounded ${c.bg} ${c.text} border ${c.border}">${sanitize(t)}</span>`).join('');
+        return `
+          <div class="group backdrop-blur-md bg-slate-900/30 border ${c.border} rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${c.hover}" onclick="window.open('${sanitize(p.url)}','_blank')">
+            <div class="h-32 bg-slate-900 flex items-center justify-center relative overflow-hidden">
+              <img src="${sanitize(p.img)}" alt="${sanitize(p.nombre)}" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-300" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <i class="fas ${c.icon} text-4xl text-slate-700 hidden" style="display:none"></i>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                <p class="text-xs font-['JetBrains_Mono'] text-[#b3bbc7]">${sanitize(p.desc)}</p>
+              </div>
+              <span class="absolute top-2 right-2 text-[10px] font-['JetBrains_Mono'] text-[#823000]">${sanitize(p.periodo)}</span>
+            </div>
+            <div class="p-3">
+              <h4 class="text-sm text-[#b3bbc7] font-medium group-hover:${c.text} transition-colors">${sanitize(p.nombre)}</h4>
+              <div class="flex flex-wrap gap-1 mt-2">${tags}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ─── MODAL ───
+    function openModal(id) {
+      const p = proyectos[id];
+      const c = colorMap[p.color];
+      const tags = p.tags.map(t => `<span class="text-xs px-2 py-0.5 rounded ${c.bg} ${c.text} border ${c.border}">${sanitize(t)}</span>`).join('');
+      document.getElementById('modal-content').innerHTML = `
+        <div class="flex items-start gap-4 mb-4">
+          <div class="w-14 h-14 rounded-xl ${c.bg} border ${c.border} flex items-center justify-center flex-shrink-0">
+            <i class="fas ${c.icon} text-2xl ${c.text}"></i>
+          </div>
+          <div>
+            <h3 class="font-['JetBrains_Mono'] text-xl font-bold text-[#b3bbc7]">${sanitize(p.nombre)}</h3>
+            <p class="text-sm text-[#823000] font-['JetBrains_Mono'] mt-1">${sanitize(p.periodo)}</p>
+          </div>
+        </div>
+        <img src="${sanitize(p.img)}" alt="${sanitize(p.nombre)}" class="w-full h-40 object-cover rounded-lg mb-3 ${c.border} border" onerror="this.style.display='none'">
+        <p class="text-[#b3bbc7] text-sm leading-relaxed">${sanitize(p.desc)}</p>
+        <div class="flex flex-wrap gap-2 mt-4">${tags}</div>
+        <a href="${sanitize(p.url)}" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-xs font-['JetBrains_Mono'] ${c.text} underline underline-offset-2 hover:opacity-80">Visitar proyecto →</a>
+      `;
+      document.getElementById('project-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('project-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // ─── TERMINAL REVEAL ───
+    function typeWriter(el, text, speed, callback) {
+      el.textContent = '';
+      let i = 0;
+      function tick() {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          i++;
+          setTimeout(tick, speed);
+        } else if (callback) {
+          callback();
+        }
+      }
+      tick();
+    }
+
+    // ─── TOPO CANVAS ───
+    function initTopo() {
+      const canvas = document.getElementById('topo-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h;
+
+      function resize() {
+        w = window.innerWidth;
+        h = window.innerHeight;
+        canvas.width = w;
+        canvas.height = h;
+      }
+
+      function draw(time) {
+        ctx.clearRect(0, 0, w, h);
+        const offset = (time || 0) * 0.001;
+
+        // ── UTM-style grid ──
+        ctx.strokeStyle = 'rgba(80, 90, 105, 0.08)';
+        ctx.lineWidth = 0.5;
+        const gridSize = 60;
+        for (let x = 0; x <= w; x += gridSize) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, h);
+          ctx.stroke();
+        }
+        for (let y = 0; y <= h; y += gridSize) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(w, y);
+          ctx.stroke();
+        }
+
+        // ── Contour curves ──
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        for (let row = -3; row < 8; row++) {
+          ctx.beginPath();
+          const baseY = h * 0.08 + row * (h * 0.11) + Math.sin(offset + row * 0.7) * 10;
+          for (let x = 0; x <= w; x += 3) {
+            const y = baseY + Math.sin(x * 0.006 + offset + row * 1.2) * 14 + Math.sin(x * 0.0025 + offset * 0.4 + row) * 24;
+            ctx.lineTo(x, y);
+          }
+          ctx.strokeStyle = `rgba(80, 90, 105, ${0.3 + row * 0.04})`;
+          ctx.stroke();
+        }
+
+        for (let row = -2; row < 7; row++) {
+          ctx.beginPath();
+          const baseY = h * 0.12 + row * (h * 0.11) + Math.sin(offset + 2 + row * 0.7) * 10;
+          for (let x = 0; x <= w; x += 3) {
+            const y = baseY + Math.cos(x * 0.005 + offset * 0.6 + row) * 12 + Math.cos(x * 0.003 + row * 1.8) * 18;
+            ctx.lineTo(x, y);
+          }
+          ctx.strokeStyle = `rgba(80, 90, 105, ${0.15 + row * 0.03})`;
+          ctx.stroke();
+        }
+
+        // ── North arrow ──
+        const nx = 50, ny = h - 60, ns = 18;
+        ctx.save();
+        ctx.shadowColor = 'rgba(80, 90, 105, 0.3)';
+        ctx.shadowBlur = 6;
+        ctx.strokeStyle = 'rgba(80, 90, 105, 0.25)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(nx, ny - ns);
+        ctx.lineTo(nx - ns * 0.35, ny + ns * 0.4);
+        ctx.lineTo(nx, ny + ns * 0.15);
+        ctx.lineTo(nx + ns * 0.35, ny + ns * 0.4);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fillStyle = 'rgba(80, 90, 105, 0.12)';
+        ctx.fill();
+        ctx.font = '7px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = 'rgba(80, 90, 105, 0.2)';
+        ctx.fillText('N', nx, ny - ns - 4);
+        ctx.restore();
+
+        // ── Scale bar ──
+        const sx = 50, sy = h - 30;
+        ctx.save();
+        ctx.strokeStyle = 'rgba(80, 90, 105, 0.2)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(sx, sy);
+        ctx.lineTo(sx + 60, sy);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(sx, sy - 4);
+        ctx.lineTo(sx, sy + 4);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(sx + 60, sy - 4);
+        ctx.lineTo(sx + 60, sy + 4);
+        ctx.stroke();
+        ctx.font = '6px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = 'rgba(80, 90, 105, 0.2)';
+        ctx.fillText('100 km', sx + 30, sy + 14);
+        ctx.restore();
+
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+      draw(0);
+    }
+
+    // ─── COORDINATES OVERLAY ───
+    (function() {
+      const el = document.createElement('div');
+      el.id = 'coord-overlay';
+      el.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:999;font-family:\'JetBrains_Mono\',monospace;font-size:11px;color:rgba(128,106,183,0.6);background:rgba(11,10,13,0.6);backdrop-filter:blur(4px);border:1px solid rgba(128,106,183,0.15);border-radius:8px;padding:6px 10px;pointer-events:none;transition:opacity 0.3s;opacity:0';
+      el.textContent = '—°S  —°W';
+      document.body.appendChild(el);
+
+      let hideTimer;
+      const main = document.getElementById('main-content');
+      if (!main) return;
+
+      function update(e) {
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const sidebarW = 256;
+        const x = Math.max(0, e.clientX - sidebarW);
+        const y = e.clientY;
+        const maxX = Math.max(1, vw - sidebarW);
+        const maxY = Math.max(1, vh);
+
+        const lat = (18 + (y / maxY) * 38).toFixed(4);
+        const lng = (76 - (x / maxX) * 10).toFixed(4);
+        el.textContent = `${lat}°S  ${lng}°W`;
+
+        el.style.opacity = '1';
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => { el.style.opacity = '0'; }, 2000);
+      }
+
+      main.addEventListener('mousemove', update);
+    })();
+
+    // ─── TOGGLE EXPERIENCE ───
+    function toggleExp(el) {
+      const desc = el.querySelector('.exp-desc');
+      const toggle = el.querySelector('.exp-toggle');
+      if (!desc) return;
+      const isHidden = desc.classList.contains('hidden');
+      desc.classList.toggle('hidden');
+      if (toggle) {
+        if (isHidden) {
+          toggle.innerHTML = '<i class="fas fa-chevron-up"></i> colapsar';
+        } else {
+          toggle.innerHTML = '<i class="fas fa-chevron-down"></i> expandir';
+        }
+      }
+    }
+
+    // ─── TABS ───
+    let currentTab = 'publicaciones';
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById('tab-' + tab).classList.remove('hidden');
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('text-[#8754FB]', 'border-purple-500');
+        btn.classList.add('text-[#823000]', 'border-transparent');
+      });
+      const activeBtn = document.querySelector(`.tab-btn[data-tab="${tab}"]`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-[#823000]', 'border-transparent');
+        activeBtn.classList.add('text-[#8754FB]', 'border-purple-500');
+      }
+    }
+
+    // ─── SCROLL REVEAL ───
+    function initScrollReveal() {
+      const revealItems = document.querySelectorAll('section[id]:not(#home), .cert-tile, .exp-item, .project-card');
+
+      revealItems.forEach(el => {
+        el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700', 'ease-out');
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-8');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      revealItems.forEach(el => observer.observe(el));
+
+      // Reveal target section on hash navigation after scroll completes
+      window.addEventListener('hashchange', () => {
+        const id = location.hash.replace('#', '');
+        const target = document.getElementById(id);
+        if (target) {
+          const check = () => {
+            const rect = target.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+              target.classList.add('opacity-100', 'translate-y-0');
+              target.classList.remove('opacity-0', 'translate-y-8');
+            } else {
+              requestAnimationFrame(check);
+            }
+          };
+          setTimeout(check, 100);
+        }
+      });
+    }
+
+    // ─── SIDEBAR NAV ───
+    function initSidebar() {
+      const links = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section[id]');
+      const main = document.getElementById('main-content');
+
+      function updateActive() {
+        let current = 'home';
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 200) current = section.id;
+        });
+        links.forEach(link => {
+          const href = link.getAttribute('href').replace('#', '');
+          if (href === current) {
+            link.classList.add('text-[#8754FB]', 'bg-slate-800/50');
+            link.classList.remove('text-[#806AB7]');
+          } else {
+            link.classList.remove('text-[#8754FB]', 'bg-slate-800/50');
+            link.classList.add('text-[#806AB7]');
+          }
+        });
+      }
+
+      main.addEventListener('scroll', updateActive);
+      window.addEventListener('hashchange', () => setTimeout(updateActive, 100));
+      // Initial active
+      setTimeout(updateActive, 100);
+    }
+
+    // ─── MOBILE SIDEBAR ───
+    function initMobile() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const sidebar = document.querySelector('aside');
+      const overlay = document.getElementById('sidebar-overlay');
+      const closeBtn = document.getElementById('sidebar-toggle');
+
+      function open() {
+        sidebar.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      if (btn) btn.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (overlay) overlay.addEventListener('click', close);
+
+      // Close on nav link click (mobile only)
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 1024) close();
+        });
+      });
+
+      // On resize, reset
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+          sidebar.classList.remove('-translate-x-full');
+          if (overlay) overlay.classList.add('hidden');
+          document.body.style.overflow = '';
+        } else {
+          sidebar.classList.add('-translate-x-full');
+        }
+      });
+    }
+
+    // ─── CONTACT FORM ───
+    // ── SETUP ──
+    // 1. Crea una cuenta gratis en https://formspree.io
+    // 2. Crea un nuevo formulario con tu correo carvajalpolanco.eduardo@gmail.com
+    // 3. Copia el endpoint (ej: https://formspree.io/f/xyzkab) y pégalo en FORM_ENDPOINT abajo
+    const FORM_ENDPOINT = 'https://formspree.io/f/mgojpnpd';
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const arrow = document.getElementById('submit-arrow');
+      const status = document.getElementById('form-status');
+
+      if (FORM_ENDPOINT.includes('YOUR_FORM_ID')) {
+        arrow.textContent = '⚠️';
+        status.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Configura FORM_ENDPOINT en el código (ver instrucciones junto a handleSubmit)';
+        status.className = 'text-xs text-[#823000] font-[\'JetBrains_Mono\'] mt-3';
+        status.classList.remove('hidden');
+        setTimeout(() => { arrow.textContent = '→'; }, 4000);
+        return;
+      }
+
+      const data = {
+        name: document.getElementById('form-name').value,
+        email: document.getElementById('form-email').value,
+        subject: document.getElementById('form-subject').value,
+        message: document.getElementById('form-message').value
+      };
+
+      btn.disabled = true;
+      arrow.textContent = '⏳';
+
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(res => {
+        if (res.ok) {
+          arrow.textContent = '✅';
+          status.innerHTML = '<i class="fas fa-check-circle"></i> Mensaje transmitido correctamente';
+          status.className = 'text-xs text-emerald-400/70 font-[\'JetBrains_Mono\'] mt-3';
+          status.classList.remove('hidden');
+          document.getElementById('contact-form').reset();
+        } else {
+          throw new Error('Formspree error');
+        }
+      })
+      .catch(() => {
+        arrow.textContent = '❌';
+        status.innerHTML = '<i class="fas fa-times-circle"></i> Error al enviar. Verifica FORM_ENDPOINT en el código.';
+        status.className = 'text-xs text-[#823000] font-[\'JetBrains_Mono\'] mt-3';
+        status.classList.remove('hidden');
+      })
+      .finally(() => {
+        setTimeout(() => {
+          arrow.textContent = '→';
+          btn.disabled = false;
+        }, 4000);
+      });
+    }
+
+    // ─── DATA STREAM LINE ───
+    function initDataStream() {
+      const line = document.getElementById('data-stream-line');
+      if (!line) return;
+      let pos = 0;
+      setInterval(() => {
+        pos = (pos + 1) % 100;
+        line.style.background = `linear-gradient(to bottom, rgba(6, 182, 212, ${0.1 + Math.sin(pos * 0.1) * 0.1}) 0%, rgba(51, 65, 85, 0.3) ${pos}%, transparent 100%)`;
+      }, 80);
+    }
+
+    // ─── INIT ───
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sidebar mobile default state
+      const sidebar = document.querySelector('aside');
+      if (window.innerWidth < 1024) {
+        sidebar.classList.add('-translate-x-full');
+      }
+
+      renderProyectos();
+      initTopo();
+      initSidebar();
+      initMobile();
+      initScrollReveal();
+      initDataStream();
+
+      // Terminal reveal
+      typeWriter(document.getElementById('hero-name'), 'Eduardo Carvajal Polanco', 60, () => {
+        setTimeout(() => {
+          typeWriter(document.getElementById('hero-title'), 'Geógrafo, Especialista en Ordenamiento Territorial, Modelación Espacial y Gestión del Riesgo de Desastres', 25);
+        }, 400);
+      });
+    });
+
+    // ─── CLOSE MODAL ON ESC ───
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+
+</html>
